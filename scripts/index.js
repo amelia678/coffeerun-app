@@ -33,7 +33,9 @@ function handleSubmit(event) {
             // "Content-Type": "application/x-www-form-urlencoded",
         },
         body: JSON.stringify(data)
-    })
+    }).then(r => r.json())
+      .then(console.log)
+
 }
 
 // ==================
