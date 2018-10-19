@@ -56,7 +56,10 @@ function handleSubmit(event) {
     }).then(r => r.json())
       .then( (orderInfo) => {
         //   check the order info for errors
-            if (orderInfo.name === "ValidationError") {
+        // is a "falsey hunter"
+        // moves from left to right , and will stop moving
+        // when it finds the first falsey expression
+            if (orderInfo.name && orderInfo.name === "ValidationError") {
                 notifyUser(`I'm sorry. Please fill out the coffee AND email address field. Thx`);
             } else {
                 notifyUser(`Your coffee is being prepared by gnomes`);
