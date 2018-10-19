@@ -83,11 +83,31 @@ function confirmReset(e) {
 		e.preventDefault();
 	}
 }
+// working with one coffee order
+function convertOrderToElement(orderInfo) {
+	const orderElement = document.createElement('p');
+	const orderText = `
+        ${orderInfo.size} ${orderInfo.flavor} ${orderInfo.coffee} for 
+        ${orderInfo.emailAddress}
+        <br>
+        (${orderInfo.strength})
+    `;
+	orderElement.innerHTML = orderText;
 
+	return orderElement;
+}
+// working with an array of coffee orders
+function convertArrayOfOrdersToElements(giantFrigginOrderObject) {
+	let orderArray = Object.values(giantFrigginOrderObject);
+	let elementsArray = orderArray.map(convertOrderToElement);
+	return elementsArray;
+}
 function getAndShowOrders(event) {
 	console.log('hey! a click!');
 	// console.log(event);
-	fetch(API_URL).then((response) => response.json()).then(console.log);
+	fetch(API_URL).then((response) => response.json()).then(convertArrayOfOrdersToElements).then((elementsArray) => {
+		elementsArray.forEach((e) => orderListingArea.appendChild(e));
+	});
 }
 
 // ==================
