@@ -1,4 +1,10 @@
 // ==================
+// Constants
+// ==================
+
+const API_URL = 'https://dc-coffeerun.herokuapp.com/api/coffeeOrders';
+
+// ==================
 // DOM selection
 // ==================
 const orderForm = document.querySelector('[data-form]');
@@ -37,7 +43,7 @@ function handleSubmit(event) {
 	// Call fetch()
 	// pass it the URL
 	// and an object with a method and a body
-	const url = event.target.action;
+	const url = API_URL;
 	const method = event.target.method;
 	const elements = event.target.elements;
 	const data = {
@@ -71,12 +77,19 @@ function handleSubmit(event) {
 		});
 }
 
-function confirmReset(e) {}
+function confirmReset(e) {
+	let doesWantToReset = confirm('Really?');
+	if (!doesWantToReset) {
+		e.preventDefault();
+	}
+}
 
 function getAndShowOrders(event) {
 	console.log('hey! a click!');
-	console.log(event);
+	// console.log(event);
+	fetch(API_URL).then((response) => response.json()).then(console.log);
 }
+
 // ==================
 // Main event listeners
 // ==================
