@@ -1,14 +1,32 @@
 html {
-    box-sizing: border-box;
-  }
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-  
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
 
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background-image: url(../images/art-blur-cappuccino-302899.jpg);
+	background-color: #84552e;
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: contain;
+	min-height: 500px;
+	min-width: 100%;
+}
+
+h1 {
+	font-family: 'Abril Fatface', cursive;
+	color: lightseagreen;
+	text-align: center;
 }
