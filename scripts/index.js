@@ -67,10 +67,11 @@ function handleSubmit(event) {
 			// is a "falsey hunter"
 			// moves from left to right , and will stop moving
 			// when it finds the first falsey expression
+			const indivOrderText = `${orderInfo.size} ${orderInfo.flavor} ${orderInfo.coffee} strength ${orderInfo.strength}`;
 			if (orderInfo.name && orderInfo.name === 'ValidationError') {
 				notifyUser(`I'm sorry. Please fill out the coffee AND email address field. Thx`);
 			} else {
-				notifyUser(`Your coffee is being prepared by gnomes`);
+				notifyUser(`Your ${indivOrderText} is being prepared by gnomes`);
 			}
 
 			//gotta wrap it in an anonymous function
@@ -83,6 +84,7 @@ function confirmReset(e) {
 		e.preventDefault();
 	}
 }
+
 // working with one coffee order
 function convertOrderToElement(orderInfo) {
 	const orderElement = document.createElement('p');
